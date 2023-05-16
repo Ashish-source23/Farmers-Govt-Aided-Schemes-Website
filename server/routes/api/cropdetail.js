@@ -6,7 +6,7 @@ const passport = require("passport");
 const Crop = require("../../models/Crop");
 
 //@type     GET
-//@route    /
+//@route    /api/crop/
 //@desc     route for getting all the crops
 //@access   PUBLIC
 router.get("/", (req, res) => {
@@ -17,11 +17,11 @@ router.get("/", (req, res) => {
 });
 
 //@type     POST
-//@route    /details
+//@route    /add
 //@desc     route for posting crop details
 //@access   PRIVATE
 router.post(
-  "/details",
+  "/add",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const newCrop = new Crop({

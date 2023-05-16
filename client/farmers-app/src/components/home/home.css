@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+.home-container {
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-right: 15px;
+  height: auto;
+  background-color: #eef2e6;
+  border-radius: 20px;
+  /* width: max-content; */
+}
+
+.home {
+  font-family: "Lora", serif;
+  padding: 30px 35px;
+  font-size: 18px;
+  margin-top: 10px;
+  /* margin: 80px 35px 20px; */
+}
+
+.home h3 {
+  font-size: 23px;
+}

@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+@import "react-phone-number-input/style.css";
+
+.login-container {
+  margin-left: 180px;
+  margin-top: 30px;
+  margin-right: 150px;
+  background-color: #eef2e6;
+  height: auto;
+  border-radius: 20px;
+  padding: 10px;
+  /* width: 1140px; */
+}
+
+.login {
+  font-family: "Lora", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 15px 10px;
+  padding: 20px 25px;
+  font-size: 18px;
+  border: 2px solid #34626c;
+  border-radius: 20px;
+}
+
+.login h3 {
+  font-size: 28px;
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
+
+.login label {
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+
+.inputContainer {
+  margin: 10px;
+  padding: 15px;
+  width: 65%;
+  margin-left: 70px;
+  border-radius: 5px;
+  border: 1px solid #0ea293;
+}
+
+.appbutton {
+  height: 50px;
+  width: 100px;
+  background-color: #34626c;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 1.2rem sans-serif;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.appbutton::before,
+.appbutton::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  background-color: #34626c;
+  transition: all 250ms ease-in-out;
+}
+
+.appbutton::before {
+  width: 2px;
+  height: 50px;
+  box-shadow: 100px 0 #34626c;
+}
+
+.appbutton::after {
+  height: 2px;
+  width: 100px;
+  box-shadow: 0 48px #34626c;
+}
+
+.appbutton:hover::before {
+  left: -10px;
+  box-shadow: 115px 0 #34626c;
+}
+
+.appbutton:hover::after {
+  top: -10px;
+  box-shadow: 0 65px #34626c;
+}

@@ -2,14 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const cors = require("cors");
 
 const app = express();
 
 //Port setup
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 //Middleware configurations
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 //bringing all the routes
 const auth = require("./routes/api/auth");
@@ -35,7 +37,7 @@ require("./strategies/jwtstrategy")(passport);
 
 //Route for testing
 app.get("/", (req, res) => {
-  res.send("HELLO");
+  res.json({ msg: "Hello" });
 });
 
 // actual routes

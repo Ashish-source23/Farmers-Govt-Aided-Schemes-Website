@@ -4,16 +4,19 @@ const bcrypt = require("bcryptjs");
 const jsonwt = require("jsonwebtoken");
 const passport = require("passport");
 const key = require("../../setup/myurl").secret;
+const verifyJwt = require("../../middlewares/verifyjwt");
 
 //Importing User Schema
 const Person = require("../../models/Person");
 
 //@type     GET
-//@route    /
+//@route    /users
 //@desc     route for testing
 //@access   PUBLIC
-router.get("/", (req, res) => {
-  res.send("Hello auth");
+router.get("/users", (req, res) => {
+  Person.find()
+    .then((persons) => res.json(persons))
+    .catch((err) => console.log("Error in finding the user profiles"));
 });
 
 //@type     POST
@@ -31,7 +34,7 @@ router.post("/register", (req, res) => {
         const newPerson = new Person({
           name: req.body.name,
           mobileNo: req.body.mobileNo,
-          email: req.body.email,
+          // email: req.body.email,
           password: req.body.password,
         });
         //Encrypting the password
@@ -83,6 +86,7 @@ router.post("/login", (req, res) => {
 
             jsonwt.sign(payload, key, { expiresIn: 3600 }, (err, token) => {
               res.json({
+                name: person.name,
                 success: true,
                 token: "Bearer " + token,
               });
@@ -106,13 +110,15 @@ router.post("/login", (req, res) => {
 //@access   PRIVATE
 router.get(
   "/profile",
+  verifyJwt,
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     // console.log(req);
     res.json({
-      id: req.body.id,
+      id: req.user.id,
       name: req.user.name,
       mobileNo: req.user.mobileNo,
+      isAdmin: req.user.isAdmin,
     });
   }
 );

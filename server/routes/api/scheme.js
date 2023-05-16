@@ -7,7 +7,7 @@ const passport = require("passport");
 const GovtScheme = require("../../models/Scheme");
 
 //@type     GET
-//@route    /
+//@route    api/scheme/
 //@desc     route for getting all the schemes
 //@access   PUBLIC
 router.get("/", (req, res) => {

@@ -7,9 +7,6 @@ const userSchema = new Schema({
     type: String,
     default: true,
   },
-  email: {
-    type: String,
-  },
   mobileNo: {
     type: String,
     default: true,

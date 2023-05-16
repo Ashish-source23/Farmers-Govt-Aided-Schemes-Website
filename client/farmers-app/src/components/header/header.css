@@ -1,0 +1,22 @@
+header {
+  background-color: #34626c;
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+header h1 {
+  font-size: 48px;
+  font-weight: 400;
+  font-weight: 600;
+  color: #cfd3ce;
+}
+
+header img {
+  width: 62px;
+  height: 60px;
+  padding: 2px;
+}
