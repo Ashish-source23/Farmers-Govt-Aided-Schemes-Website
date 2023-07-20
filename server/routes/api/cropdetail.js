@@ -1,16 +1,50 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const multer = require("multer");
+const path = require("path");
+const mongoose = require("mongoose");
+
+const DIR = "./public/";
 
 //database initializing
 const Crop = require("../../models/Crop");
+const File = require("../../models/Image");
+
+// Configuring destination for the images
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, DIR);
+  },
+  filename: (req, file, cb) => {
+    const filename = file.originalname.toLowerCase().split(" ").join("-");
+    cb(null, uuidv4() + "-" + filename);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/jpg" ||
+      file.mimetype == "image/jpeg"
+    ) {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
+    }
+  },
+});
 
 //@type     GET
 //@route    /api/crop/
 //@desc     route for getting all the crops
 //@access   PUBLIC
-router.get("/", (req, res) => {
-  Crop.find()
+router.get("/", async (req, res) => {
+  await Crop.find()
     .sort({ date: -1 })
     .then((crops) => res.json(crops))
     .catch((err) => console.log("Error in getting all the questions " + err));
@@ -30,9 +64,10 @@ router.post(
       category: req.body.category,
       info: req.body.info,
       price: req.body.price,
-      pesticides: req.body.pesticides,
-      fertilizers: req.body.fertilizers,
-      insecticides: req.body.insecticides,
+      symptoms: req.body.symptoms,
+      favourableconditions: req.body.favourableconditions,
+      cure: req.body.cure,
+      img: req.body.img,
     });
     //save this new object to the crop database
     newCrop
@@ -43,10 +78,49 @@ router.post(
       .catch((err) => {
         console.log("Error in saving the deatils of the crop " + err);
       });
-
-    //upload images to the IamgeDB
   }
 );
+
+//@type   POST
+//@route  /add-photos
+//@desc   route for uploading the pictures of the crop
+//@access PRIVATE
+
+router.post("/add-photos", upload.single("profileImg"), (req, res, next) => {
+  const url = req.protocol + "://" + req.get("host");
+  const newfile = new File({
+    _id: new mongoose.Types.ObjectId(),
+    imageFile: url + "/public" + req.file.filename,
+  });
+  user.save().then((file) => {
+    res.status(201).json({
+      message: "Image Uploaded",
+      imageUploaded: {
+        _id: file._id,
+        imageFile: file.imageFile,
+      }.catch((err) => {
+        console.log(err), res.status(500).json({ error: err });
+      }),
+    });
+  });
+});
+
+// router.post(
+//   "/add/photos",
+//   passport.authenticate("jwt", { session: false }),
+//   upload.single("post"),
+//   async (req, res) => {
+//     try {
+//       await File.create({
+//         // user: req.user.id,
+//         name: req.file.filename,
+//       });
+//       res.status(200).json(File);
+//     } catch (error) {
+//       console.log("Error in saving the photo :", error);
+//     }
+//   }
+// );
 
 //@type     POST
 //@route    /edit
@@ -61,9 +135,10 @@ router.post(
     if (req.body.category) cropUpdate.category = req.body.category;
     if (req.body.info) cropUpdate.info = req.body.info;
     if (req.body.price) cropUpdate.price = req.body.price;
-    if (req.body.pesticides) cropUpdate.pesticides = req.body.pesticides;
-    if (req.body.fertilizers) cropUpdate.fertilizers = req.body.fertilizers;
-    if (req.body.insecticides) cropUpdate.insecticides = req.body.insecticides;
+    if (req.body.symptoms) cropUpdate.symptoms = req.body.symptoms;
+    if (req.body.favourableconditions)
+      cropUpdate.favourableconditions = req.body.favourableconditions;
+    if (req.body.cure) cropUpdate.insecticides = req.body.cure;
 
     Crop.findOne({ _id: req.params.c_id })
       .then((crop) => {

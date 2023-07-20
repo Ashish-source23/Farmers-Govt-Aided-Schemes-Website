@@ -7,7 +7,7 @@ const verifyJwt = (req, res, next) => {
   let token = req.headers.authorization;
   if (token) {
     token = token.split(" ")[1];
-    console.log(token);
+    // console.log(token);
     jsonwt.verify(token, key, (err, valid) => {
       if (err) {
         res.status(401).json("Please provide a valid token");

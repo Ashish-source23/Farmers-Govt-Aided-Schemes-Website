@@ -2,22 +2,19 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const ImageSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "PersonDB",
+const fileSchema = new Schema({
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "CropDB",
   },
-  img: {
-    data: Buffer,
-    contentType: String,
-  },
-  desc: {
-    type: String,
-  },
-  date: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
+  imageFile: {
+    type: String,
+    required: [true, "Uploaded file must have a name"],
+  },
 });
 
-module.exports = Image = mongoose.model("ImageDB", ImageSchema);
+module.exports = File = mongoose.model("FileDB", fileSchema);

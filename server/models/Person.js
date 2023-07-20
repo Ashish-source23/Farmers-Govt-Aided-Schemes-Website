@@ -5,29 +5,25 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   name: {
     type: String,
-    default: true,
+    required: true,
   },
   mobileNo: {
     type: String,
-    default: true,
     unique: true,
     maxlength: 10,
+    required: true,
   },
   password: {
     type: String,
-    default: true,
-  },
-  username: {
-    type: String,
-    unique: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
+    required: true,
   },
   isAdmin: {
     type: Boolean,
     default: false,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
   },
 });
 

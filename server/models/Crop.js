@@ -22,19 +22,27 @@ const CropSchema = new Schema({
   price: {
     type: String,
   },
-  pesticides: {
+  symptoms: {
     type: String,
-    required: true,
+    // required: true,
   },
-  fertilizers: {
+  favourableconditions: {
     type: String,
-    required: true,
+    // required: true,
   },
-  insecticides: {
+  cure: {
     type: String,
-    required: true,
+    // required: true,
   },
   date: {
+    type: Date,
+    default: Date.now,
+  },
+  img: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
     type: Date,
     default: Date.now,
   },

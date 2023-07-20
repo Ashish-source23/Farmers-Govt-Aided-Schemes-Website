@@ -3,13 +3,32 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const GovtschemeSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
   about: {
     type: String,
     required: true,
   },
-  wheretoapply: {
+  website: {
     type: String,
-    required: true,
+    // required: true,
+  },
+  duration: {
+    type: String,
+    // required: true,
+    // default: "N / A",
+  },
+  benefits: {
+    type: String,
+    // required: true,
+    // default: "N / A",
+  },
+  eligibility: {
+    type: String,
+    // required: true,
+    // default: "N / A",
   },
   date: {
     type: Date,

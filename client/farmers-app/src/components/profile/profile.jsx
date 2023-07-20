@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import AdminProfile from "./adminProfile";
-import { BrowserRouter, Routes } from "react-router";
 
 export default function Profile() {
   const [profile, setProfile] = useState("");
@@ -19,13 +18,17 @@ export default function Profile() {
     });
     result = await result.json();
     setProfile(result);
-    console.warn(result);
+    // console.warn(result);
   };
 
   return (
     <>
       {adminCheck ? (
-        <AdminProfile />
+        <div className="profile-container">
+          <div className="admin">
+            <AdminProfile />
+          </div>
+        </div>
       ) : (
         <>
           <div className="profile-container">

@@ -34,7 +34,6 @@ router.post("/register", (req, res) => {
         const newPerson = new Person({
           name: req.body.name,
           mobileNo: req.body.mobileNo,
-          // email: req.body.email,
           password: req.body.password,
         });
         //Encrypting the password

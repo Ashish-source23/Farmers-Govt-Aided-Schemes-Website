@@ -1,22 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
 header {
-  background-color: #34626c;
   display: flex;
   position: sticky;
   top: 0;
-  justify-content: center;
   padding-top: 10px;
-  padding-bottom: 5px;
+  padding-left: 25px;
 }
 
 header h1 {
   font-size: 48px;
   font-weight: 400;
   font-weight: 600;
-  color: #cfd3ce;
+  color: #092a35;
+  margin-left: 25px;
 }
 
 header img {
   width: 62px;
   height: 60px;
   padding: 2px;
+  margin-left: 35px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  padding: 0px 10px;
+}
+
+.homeIcon {
+  margin-left: 42px;
+}
+
+.navbar-container {
+  background: linear-gradient(186deg, #82cd47 0%, #f0ff42 100%);
+  position: sticky;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px groove;
+  border-image: linear-gradient(
+      315deg,
+      rgb(240, 255, 66) 0%,
+      rgb(130, 205, 71) 100%
+    )
+    1;
+}
+
+.navbar {
+  display: flex;
+  margin-right: 45px;
+}
+
+.sidenav {
+  margin-top: 30px;
+}
+
+.navbar li a {
+  color: #092a35;
+  text-decoration: none;
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.navbar li a:hover {
+  color: #379237;
+}
+
+.navbar-element {
+  padding: 10px 15px;
 }

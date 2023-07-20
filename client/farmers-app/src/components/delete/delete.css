@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+.delete-container {
+  margin-top: 30px;
+  margin-left: 45px;
+  margin-right: 45px;
+  background-color: #eef2e6;
+  height: auto;
+  border-radius: 20px;
+  padding: 10px;
+  /* width: 1140px; */
+}
+
+.delete {
+  font-family: "Lora", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 15px 10px;
+  padding: 20px 25px;
+  font-size: 18px;
+  border: 2px solid #34626c;
+  border-radius: 20px;
+}
+
+.delete h3 {
+  font-size: 20px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+
+.delete p {
+  font-size: 18px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+
+.delete li {
+  font-size: 18px;
+  padding-bottom: 15px;
+}
+
+.delete label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.deleteblock {
+  font-family: "Lora", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 15px 10px;
+  padding: 20px 25px;
+  font-size: 18px;
+  border: 2px solid #34626c;
+}
+
+.inputContainer {
+  margin: 10px;
+  padding: 15px;
+  width: 65%;
+  /* margin-left: 70px; */
+  border-radius: 5px;
+}
+
+.verify {
+  font-size: 15px;
+}
+
+.btn {
+  font-size: 17px;
+  height: 45px;
+  width: 100px;
+  background-color: #cfd3ce;
+  color: #34626c;
+  border: 1px solid currentColor;
+}
+
+.btn:hover {
+  background-color: #34626c;
+  color: #fff;
+}
+
+.popblock {
+  width: 80%;
+}
+
+.popblock p {
+  font-size: 14px;
+}
+
+.popblock label {
+  font-size: 16px;
+}

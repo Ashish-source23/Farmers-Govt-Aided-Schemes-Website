@@ -13,6 +13,9 @@ const PORT = process.env.PORT || 8000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
+// // Configuring destination for the images
+// const upload = multer({ dest: "public/files" });
+
 //bringing all the routes
 const auth = require("./routes/api/auth");
 const cropdetail = require("./routes/api/cropdetail");
@@ -35,10 +38,10 @@ app.use(passport.initialize());
 //JWT Strategy configuration
 require("./strategies/jwtstrategy")(passport);
 
-//Route for testing
-app.get("/", (req, res) => {
-  res.json({ msg: "Hello" });
-});
+// //Route for testing
+// app.get("/", (req, res) => {
+//   res.json({ msg: "Hello" });
+// });
 
 // actual routes
 app.use("/api/auth", auth);

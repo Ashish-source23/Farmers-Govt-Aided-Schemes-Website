@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+.crop-container {
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+  background-color: #f5f0bb;
+  height: auto;
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid #eccdb4;
+}
+
+.newContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 7px;
+  margin-left: 7px;
+  border-radius: 0px;
+  border-radius: 10px;
+  border: 1px solid #f5f0bb;
+}
+
+.newContainer h3 {
+  font-family: "Lora", serif;
+  font-size: 30px;
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
+
+.crop {
+  font-family: "Lora", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px 15px 10px;
+  padding: 20px 25px;
+  font-size: 18px;
+  /* border: 2px solid #34626c; */
+  border-radius: 20px;
+}
+
+.flexcontainer {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  border-radius: 0px;
+}
+
+.crop h3 {
+  font-size: 28px;
+  padding-bottom: 30px;
+  margin-top: 0px;
+}
+
+.crop label {
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+
+.inputContainer {
+  margin: 10px;
+  padding: 15px;
+  width: 65%;
+  margin-left: 70px;
+  border-radius: 5px;
+}
+
+.appbutton {
+  margin-top: 15px;
+  height: 50px;
+  width: 100px;
+  background-color: #cbe4de;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 1rem sans-serif;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.appbutton::before,
+.appbutton::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  background-color: #34626c;
+  transition: all 250ms ease-in-out;
+}
+
+.appbutton::before {
+  width: 2px;
+  height: 50px;
+  box-shadow: 100px 0 #34626c;
+}
+
+.appbutton::after {
+  height: 2px;
+  width: 100px;
+  box-shadow: 0 48px #34626c;
+}
+
+.appbutton:hover::before {
+  left: -10px;
+  box-shadow: 115px 0 #34626c;
+}
+
+.appbutton:hover::after {
+  top: -10px;
+  box-shadow: 0 65px #34626c;
+}
+
+.formContainer {
+  width: 70%;
+  padding-top: 20px;
+  width: 70%;
+}
+
+.add {
+  width: 820px;
+  margin: 10px;
+  padding: 15px;
+  width: 65%;
+  border-radius: 5px;
+  border: 2px solid #54b435;
+}
+
+.imageContainer {
+  font-family: "Lora", serif;
+  border: 2px dotted black;
+  width: 500px;
+  padding: 20px 70px;
+  height: 600px;
+  margin-left: 15px;
+}
+
+.imageContainer h3 {
+  margin-top: 200px;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.fileContainer {
+  width: 215px;
+  padding-top: 10px;
+  font-size: 15px;
+}
+
+.uploadbtn {
+  font-weight: 700;
+  color: #f0ff42;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  width: 80px;
+  background-color: #54b435;
+  border: 3px solid #f0ff42;
+
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.uploadbtn:hover {
+  color: #54b435;
+  border: 2px solid #54b435;
+  background-color: #f0ff42;
+  font-weight: 700;
+  width: 120px;
+}

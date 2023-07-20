@@ -18,7 +18,7 @@ export default function Login() {
       }),
     });
     result = await result.json();
-    console.warn(result);
+    // console.warn(result);
     if (result.token) {
       localStorage.setItem("user", JSON.stringify(result));
       localStorage.setItem("token", JSON.stringify(result.token));

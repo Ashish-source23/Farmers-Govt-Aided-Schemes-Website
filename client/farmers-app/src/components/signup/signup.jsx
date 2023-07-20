@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import "./signup.css";
 
 export default function SignUp() {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [mobileNo, setMobileNo] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,14 +22,14 @@ export default function SignUp() {
       body: new URLSearchParams({
         mobileNo: mobileNo,
         password: password,
-        name: username,
+        name: name,
       }),
     });
     result = await result.json();
     console.warn(result);
+    navigate("/profile");
     localStorage.setItem("user", JSON.stringify(result));
     localStorage.setItem("token", JSON.stringify(result.auth));
-    navigate("/");
   };
 
   return (
@@ -38,20 +38,23 @@ export default function SignUp() {
         <div className="register">
           <h3>Haven't connected yet ?? </h3>
           <h3>Register Here</h3>
-          <label htmlFor="password">Enter your name :</label>
+          <label htmlFor="name">Enter your name :</label>
           <br></br>
           <input
             className="inputContainer"
             type="text"
             placeholder="Enter your name"
-            name="name"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           ></input>
+
           <br></br>
+
           <label htmlFor="mobileNo">Enter your mobile number :</label>
+
           <br></br>
+
           <input
             className="inputContainer"
             type="text"
@@ -62,9 +65,13 @@ export default function SignUp() {
             onChange={(e) => setMobileNo(e.target.value)}
             value={mobileNo}
           ></input>
+
           <br></br>
+
           <label htmlFor="password">Enter your password :</label>
+
           <br></br>
+
           <input
             className="inputContainer"
             type="password"
@@ -75,7 +82,9 @@ export default function SignUp() {
             value={password}
             minLength="8"
           ></input>
+
           <br></br>
+
           <button className="appbutton" type="button" onClick={handleClick}>
             Register
           </button>

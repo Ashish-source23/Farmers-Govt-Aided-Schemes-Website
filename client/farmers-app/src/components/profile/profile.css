@@ -2,12 +2,18 @@
 
 .profile-container {
   margin-top: 5px;
-  margin-left: 35px;
-  margin-right: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
   padding: 10px;
   height: auto;
-  background-color: #eef2e6;
+  background-color: #ecf8f9;
   border-radius: 20px;
+}
+
+.block-container a {
+  text-decoration: none;
+  font-family: "Lora", serif;
+  font-weight: 500;
 }
 
 .profile {
@@ -27,4 +33,63 @@
 
 .profile span {
   font-weight: bold;
+}
+
+/* Admin profile */
+
+span {
+  font-weight: 800;
+}
+
+.admin {
+  font-family: "Lora", serif;
+  padding: 20px 30px;
+}
+
+.adminProfile h3 {
+  font-family: "Lora", serif;
+  font-size: 23px;
+  padding-bottom: 10px;
+}
+
+.block {
+  background-color: #c4dfdf;
+  color: #34626c;
+  border: 1px solid currentColor;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px 15px;
+  font-size: 20px;
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.block-container {
+  display: flex;
+  justify-content: center;
+}
+
+.block:hover {
+  background-color: #526d82;
+  color: #fff;
+}
+
+.box {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 30px 40px;
+  margin: 20px 40px;
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.box:hover {
+  background-color: #e3f4f4;
+}
+
+.icon {
+  margin-left: 20px;
+  color: white;
 }
